@@ -63,12 +63,14 @@ public class LoggingFilter implements GlobalFilter {
             log.info("解析令牌失败，返回未登录错误信息");
             String notLogin = JSON.toJSONString(Result.set(-10, "not_login_error"));
             res.getWriter().write(notLogin);
+            return null;
         } catch (Exception e)
         {
             e.printStackTrace();
             log.info("服务器错误");
             String error = JSON.toJSONString(Result.set(0, "failed"));
             res.getWriter().write(error);
+            return null;
         }
         return null;
     }
