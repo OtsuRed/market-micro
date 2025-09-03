@@ -1,0 +1,55 @@
+spring:
+  application:
+    # 服务名，非常重要
+    name: product-service
+  # Nacos 配置，本地开发默认值
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER:nacos-service:8848}
+        namespace: public
+        group: DEFAULT_GROUP
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: ${NACOS_SERVER:nacos-server:8848}
+        namespace: public
+        group: DEFAULT_GROUP
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+        # 配置文件扩展名
+        file-extension: yaml
+        # 测试阶段可关闭配置中心
+        # enabled: false
+  # 数据源配置，本地开发默认值
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_service?useSSL=false&allowMultiQueries=true
+    username: root
+    password: Fosatmysql1939!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active:
+    - dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 120MB
+  config:
+    # 关键配置
+    import: optional:nacos:${spring.application.name}.yaml
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  # config-location: classpath:mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 服务端口
+server:
+  port: 8080
+
+logging:
+  level:
+    '[top.otsuland.market.service]': DEBUG
+    '[top.otsuland.market.mapper]': DEBUG

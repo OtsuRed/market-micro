@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.UserFollowMapper">
+
+    <!-- selectByFolloweeAndFollower --> 
+
+    <select id="selectByFolloweeAndFollower">
+        select * from user_follow
+        where followee_id = #{followee} and follower_id = #{follower};
+    </select>
+
+    <!-- selectFolloweeWithUsername --> 
+    <resultMap id="userFollowVOMap" type="top.otsuland.market.dto.UserFollowVO">
+        <result property="userId" column="followee_id" />
+        <result property="username" column="username" />
+    </resultMap>
+    <select id="selectFolloweeWithUsername" resultMap="userFollowVOMap">
+        select
+            uf.followee_id,
+            u.username
+        from user_follow uf
+        left join a_user u on uf.followee_id = u.id
+        where uf.follower_id = #{uid}
+    </select>
+
+    <!-- selectFollowerWithUsername --> 
+    <resultMap id="userFollowVOMap2" type="top.otsuland.market.dto.UserFollowVO2">
+        <result property="userId" column="follower_id" />
+        <result property="username" column="username" />
+    </resultMap>
+    <select id="selectFollowerWithUsername" resultMap="userFollowVOMap2">
+        select
+            uf.follower_id,
+            u.username
+        from user_follow uf
+        left join a_user u on uf.follower_id = u.id
+        where uf.followee_id = #{uid}
+    </select>
+</mapper>

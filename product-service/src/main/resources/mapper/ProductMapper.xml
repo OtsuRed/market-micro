@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.ProductMapper">
+
+    <!-- selectByUidAndPid --> 
+
+    <select id="selectByUidAndPid">
+        select * from product where seller_id = #{uid} and id = #{pid};
+    </select>
+
+    <!-- selectByUserId --> 
+
+    <select id="selectByUserId">
+        select * from product where seller_id = #{uid};
+    </select>
+
+    <!-- updateNameById --> 
+
+    <update id="updateNameById">
+        update product set name = #{name} where id = #{id};
+    </update>
+
+    <!-- updatePriceById --> 
+
+    <update id="updatePriceById">
+        update product set price = #{price} where id = #{id};
+    </update>
+
+    <!-- updateAmountById --> 
+
+    <update id="updateAmountById">
+        update product set amount = #{amount} where id = #{id};
+    </update>
+
+
+    <!-- updateProfById --> 
+
+    <update id="updateProfById">
+        update product set prof = #{prof} where id = #{id};
+    </update>
+
+    <!-- selectByIds --> 
+
+    <select id="selectByIds">
+        select * from product
+        where id in
+        <foreach item="pid" collection="ids" open="(" separator="," close=")">
+            #{pid}
+        </foreach>
+    </select>
+
+    <!-- selectNameById --> 
+
+    <select id="selectNameById">
+        select name from product
+        where id = #{id}
+    </select>    
+
+    <!-- selectByNameAndSellerId --> 
+
+    <select id="selectByNameAndSellerId">
+        select * from product
+        where name = #{name} and seller_id = #{sellerId};
+    </select>
+
+    <!-- selectProductByUid --> 
+
+    <select id="selectProductByUid" resultType="top.otsuland.market.entity.Product">
+        select * 
+        from product
+        where seller_id = #{uid}
+    </select>
+
+    <!-- selectFavByUid --> 
+    <resultMap id="productMap" type="top.otsuland.market.entity.Product">
+        <result property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="price" column="price" />
+        <result property="amount" column="amount" />
+        <result property="sellerId" column="seller_id" />
+        <result property="prof" column="prof" />
+        <result property="want" column="want" />
+        <result property="sellerName" column="seller_name" />
+        <result property="createName" column="create_name" />
+        <result property="state" column="state" />
+    </resultMap>
+    <select id="selectFavByUid" resultMap="productMap">
+        select
+            p.id,
+            p.name,
+            p.price,
+            p.amount,
+            p.prof,
+            p.seller_id,
+            p.seller_name,
+            p.want,
+            p.state,
+            p.create_time
+        from product p
+        left join product_fav fav on fav.pid = p.id
+        where fav.uid = #{uid}
+    </select>
+</mapper>

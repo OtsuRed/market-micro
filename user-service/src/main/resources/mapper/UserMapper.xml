@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.UserMapper">
+
+    <select id="list" resultType="top.otsuland.market.entity.User">
+        select * from a_user;
+    </select>
+
+    <!-- selectByUsername --> 
+
+    <select id="selectByUsername">
+        select * from a_user where username = #{username};
+    </select>
+
+    <!-- selectByTel --> 
+
+    <select id="selectByTel">
+        select * from a_user where tel = #{tel};
+    </select>
+
+    <!-- updatePwdById --> 
+
+    <update id="updatePwdById">
+        update a_user set pwd = #{pwd} where id = #{id};
+    </update>
+    
+    <!-- updateTelById --> 
+
+    <update id="updateTelById">
+        update a_user set tel = #{tel} where id = #{id};
+    </update>
+
+    <!-- updateUsernameById --> 
+
+    <update id="updateUsernameById">
+        update a_user set username = #{username} where id = #{id};
+    </update>
+
+    <!-- selectUsernameById --> 
+
+    <select id="selectUsernameById">
+        select username from a_user
+        where id = #{id};
+    </select>
+
+    <!-- selectFolloweesByUid --> 
+
+    <select id="selectFolloweesByUid">
+        select u.id, u.username
+        from a_user u
+        join user_follow f on f.followee_id = u.id
+        where f.follower_id = #{uid};
+    </select>
+
+    <!-- selectFollowersByUid --> 
+
+    <select id="selectFollowersByUid">
+        select u.id, u.username
+        from a_user u
+        join user_follow f on f.follower_id = u.id
+        where f.followee_id = #{uid};
+    </select>
+</mapper>

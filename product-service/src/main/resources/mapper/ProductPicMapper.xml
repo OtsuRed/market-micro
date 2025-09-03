@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.ProductPicMapper">
+
+    <!-- selectByPid --> 
+
+    <select id="selectByPid">
+        select * from product_pic where product_id = #{pid};
+    </select>
+
+    <!-- selectMainByPid --> 
+
+    <select id="selectMainByPid">
+        select * from product_pic where product_id = #{pid} and kind = 1;
+    </select>
+
+    <!-- countSubByPid --> 
+
+    <select id="countSubByPid">
+        select count(*) from product_pic where product_id = #{pid} and kind = 2;
+    </select>    
+
+    <!-- selectByUidAndId --> 
+
+    <select id="selectByUidAndId">
+        select *
+        from product_pic c, product p
+        where c.product_id = p.id
+            and p.seller_id = #{uid}
+            and c.id = #{id};
+    </select>
+    
+    <!-- updatePicById --> 
+
+    <update id="updatePicById">
+        update product_pic set picture = #{pic} where id = #{id};
+    </update>
+
+    <!-- selectSubByPid --> 
+
+    <select id="selectSubByPid">
+        select * from product_pic where kind = 2 and product_id = #{pid};
+    </select>
+
+    <!-- selectPicById --> 
+
+    <select id="selectPicById" resultType="byte[]">
+        select picture from product_pic where id = #{picId} limit 1;
+    </select>
+
+</mapper>

@@ -1,0 +1,6 @@
+top\otsuland\market\common\DiscoveryConfig.class
+top\otsuland\market\common\Result.class
+top\otsuland\market\common\JwtUtils.class
+top\otsuland\market\common\LoggingFilter.class
+top\otsuland\market\common\CorsConfig.class
+top\otsuland\market\GatewayApplication.class

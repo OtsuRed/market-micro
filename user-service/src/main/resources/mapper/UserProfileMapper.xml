@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.UserProfileMapper">
+
+
+    <!-- selectIdByUserId --> 
+
+    <select id="selectIdByUserId">
+        select id from user_profile where user_id = #{userId};
+    </select>
+
+    <!-- updateEmailById --> 
+
+    <update id="updateEmailById">
+        update user_profile set email = #{email} where id = #{id};
+    </update>
+
+    <!-- updateGenderById --> 
+
+    <update id="updateGenderById">
+        update user_profile set gender = #{gender} where id = #{id};
+    </update>
+
+
+    <!-- updateProfById --> 
+
+    <update id="updateProfById">
+        update user_profile set prof = #{prof} where id = #{id};
+    </update>
+
+    <!-- selectByUid --> 
+
+    <select id="selectByUid">
+        select * from user_profile where user_id = #{uid};
+    </select>
+</mapper>

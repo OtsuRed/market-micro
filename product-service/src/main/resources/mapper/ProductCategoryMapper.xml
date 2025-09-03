@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.otsuland.market.mapper.ProductCategoryMapper">
+
+
+    <!-- selectProductIdsByCategoryIds --> 
+
+    <select id="selectProductIdsByCategoryIds">
+        select distinct product_id from product_category
+        where category_id in
+        <foreach item='id' collection='categoryIds' open='(' separator=',' close=')'>
+            #{id}
+        </foreach>
+    </select>    
+
+</mapper>

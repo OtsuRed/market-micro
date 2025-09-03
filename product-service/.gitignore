@@ -1,0 +1,50 @@
+# 编译生成文件
+/target/
+/bin/
+/build/
+/out/
+*.class
+*.jar
+*.war
+*.ear
+
+# 依赖管理 (Maven/Gradle)
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+/build/
+!gradle-wrapper.jar
+gradle-app.setting
+
+# IDE 文件
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# 日志文件
+*.log
+logs/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量/敏感文件
+.env
+# *.properties
+*.keystore
+*.jks
+/config/application-*.yml
+
+# 测试相关
+/test-output/
+/temp/
+
+*/test/
+*/static/
+
+null

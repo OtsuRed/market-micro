@@ -1,0 +1,209 @@
+# 版本声明，定义 Compose 文件格式版本，3.8 比较新，支持更多格式
+# version: '3.8' 这已经过时了，无需指定
+services:
+  mysql-for-nacos:
+    image: mysql:8.0
+    container_name: mysql-nacos
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=AliceInMysql3306
+      - MYSQL_DATABASE=nacos
+    volumes:
+      - nacos_mysql_data:/var/lib/mysql
+      # - ./nacos-mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - alice-market-network
+    restart: unless-stopped
+  # Nacos 初始化容器（只运行一次）
+  nacos-db-init:
+    image: appropriate/curl
+    container_name: nacos-db-init
+    depends_on:
+      - mysql-for-nacos
+    volumes:
+      - ./init-scripts:/scripts
+    command: >
+      sh -c "
+      # 等待 MySQL 启动
+      while ! curl -s mysql-for-nacos:3306 >/dev/null; do sleep 1; done
+      # 下载 SQL 文件
+      curl -o /scripts/mysql-schema.sql https://raw.githubusercontent.com/alibaba/nacos/develop/distribution/conf/mysql-schema.sql
+      # 给点时间让 MySQL 完全启动
+      sleep 10
+      # 执行初始化
+      curl -s mysql-for-nacos:3306 >/dev/null && 
+      mysql -h mysql-for-nacos -uroot -pAliceInMysql3306 -e 'CREATE DATABASE IF NOT EXISTS nacos;' &&
+      mysql -h mysql-for-nacos -uroot -pAliceInMysql3306 nacos < /scripts/mysql-schema.sql
+      "
+    # 只运行一次
+    restart: "no"
+    networks:
+      - alice-market-network
+  # Nacos 服务器
+  nacos-server:
+    image: nacos/nacos-server:latest
+    # 容器名称，可选，便于管理
+    container_name: nacos-server
+    # 端口映射，"主机端口:容器端口"
+    ports:
+      - "8848:8848" # Web 控制台和 API 端口
+      - "8080:8080"
+      - "9848:9848" # gRPC 端口（2.0+版本需要）
+    # 环境变量配置
+    environment:
+      - MODE=standalone # 单机模式（非集群）
+      - MYSQL_SERVICE_HOST=mysql-for-nacos
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=AliceInMysql3306
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
+      # Nacos 认证必需的环境变量
+      - NACOS_AUTH_ENABLE=true
+      - NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
+      - NACOS_AUTH_IDENTITY_KEY=AliceInNacos
+      - NACOS_AUTH_IDENTITY_VALUE=alicenet
+      - NACOS_CORE_AUTH_ENABLED=true
+      - NACOS_CORE_AUTH_SERVER_IDENTITY_KEY=AliceInNacos
+      - NACOS_CORE_AUTH_SERVER_IDENTITY_VALUE=alicenet
+    depends_on:
+      - mysql-for-nacos
+      - nacos-db-init
+    # 重启策略：除非手动停止，否则自动重启
+    restart: unless-stopped
+    networks:
+      - alice-market-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8848/nacos/"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+      start_period: 60s
+  # user-service 数据库
+  mysql-for-user:
+    image: mysql:8.0
+    container_name: mysql-user
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=AliceInMysql3306
+      - MYSQL_DATABASE=user_service
+    volumes:
+      # 相当于： ./mysql-data:/var/lib/mysql
+      - user_mysql_data:/var/lib/mysql
+      # 挂载初始化脚本
+      - ./sql/init-user.sh:/docker-entrypoint-initdb.d/init-user.sh
+      - ./sql/init-user.sql:/docker-entrypoint-initdb.d/init-user.sql
+    restart: unless-stopped
+    networks:
+      - alice-market-network
+  user-service:
+    build:
+      # Dockerfile 所在目录
+      context: ./user-service
+      # 默认就是 Dockerfile，可省略
+      # dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    # 依赖关系：先启动 nacos 和 mysql
+    depends_on:
+      nacos-server:
+        # 等待 Nacos 健康状态
+        condition: service_healthy
+      mysql-for-user:
+        condition: service_started
+    # 环境变量：传递给 Spring Boot 应用
+    # 环境变量会覆盖掉 application.yml，然后按照驼峰转换成点的形式转换
+    # SPRING_DATASOURCE_USERNAME 对应 spring.datasource.username
+    environment:
+      # 容器间通信，使用内部端口
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-for-user:3306/user_service
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=AliceInMysql3306
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER_ADDR=nacos-server:8848
+      # Nacos 鉴权配置
+      - SPRING_CLOUD_NACOS_DISCOVERY_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_DISCOVERY_PASSWORD=Fosatnacos1939
+      - SPRING_CLOUD_NACOS_CONFIG_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_CONFIG_PASSWORD=Fosatnacos1939
+      # 添加重试装置
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAILURE-TOLERANCE-ENABLED=true
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAIL-FAST=false
+    restart: unless-stopped
+    networks: 
+      - alice-market-network
+  # product-service 数据库
+  mysql-for-product:
+    image: mysql:8.0
+    container_name: mysql-product
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=AliceInMysql3306
+      - MYSQL_DATABASE=product_service
+    volumes:
+      - product_mysql_data:/var/lib/mysql
+      - ./sql/init-product.sh:/docker-entrypoint-initdb.d/init-product.sh
+      - ./sql/init-product.sql:/docker-entrypoint-initdb.d/init-product.sql
+    restart: unless-stopped
+    networks:
+      - alice-market-network
+  product-service:
+    build:
+      context: ./product-service
+    ports:
+      - "8082:8080"
+    depends_on:
+      nacos-server:
+        condition: service_healthy
+      mysql-for-product:
+        condition: service_started
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-for-product:3306/product_service
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=AliceInMysql3306
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER_ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_DISCOVERY_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_DISCOVERY_PASSWORD=Fosatnacos1939
+      - SPRING_CLOUD_NACOS_CONFIG_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_CONFIG_PASSWORD=Fosatnacos1939
+      # 添加重试装置
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAILURE-TOLERANCE-ENABLED=true
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAIL-FAST=false
+    restart: unless-stopped
+    networks: 
+      - alice-market-network
+
+volumes:
+  nacos_mysql_data:
+    name: nacos-mysql-data
+  user_mysql_data:
+    name: user-mysql-data
+  product_mysql_data:
+    name: product-mysql-data
+    # 默认创建名为"项目名_nacos_mysql_data"的卷
+    # 数据保存在 Docker 管理的位置，不会随容器删除而丢失
+
+networks:
+  alice-market-network:
+    driver: bridge
+
+# 启动命令
+# docker-compose up -d
+
+# docker-compose stop 停止容器，数据完全保留
+# docker-compose down 停止并删除容器，但是数据卷保留
+# docker-compose down -v 删除容器，且删除关联的数据卷
+# docker-compose up 再次运行，重新使用之前的数据卷
+
+# 查看所有数据卷
+# docker volume ls
+# 查看具体卷信息
+# docker volume inspect your-project-name_mysql_data
+# 删除特定数据卷（谨慎操作！）
+# docker volume rm your-project-name_mysql_data
+
+# Docker 数据卷实际上存储在主机上的某个位置
