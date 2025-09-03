@@ -20,19 +20,19 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtils {
 
     @Value("${jwt.secret}")
-    private String SECRET;
+    static private String SECRET;
 
     @Value("${jwt.expiration}")
-    private Long EXPIRATION;
+    static private Long EXPIRATION;
 
     private static final String SUBJECT = "AliceInWonderland";
 
-    private SecretKey getStringKey() {
+    private static SecretKey getStringKey() {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
     // 生成令牌
-    public String geneJWT(Integer uid) {
+    static public String geneJWT(Integer uid) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", uid);
         String token = Jwts.builder().claims()
@@ -47,7 +47,7 @@ public class JwtUtils {
     }
 
     // 解析令牌
-    public Claims checkJWT(String token) {
+    static public Claims checkJWT(String token) {
         final Claims claims = Jwts.parser()
                 .verifyWith(getStringKey())
                 .build()
