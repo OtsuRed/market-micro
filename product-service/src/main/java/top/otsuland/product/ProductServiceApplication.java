@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "top.otsuland.market.common")
-@MapperScan(basePackages = "top.otsuland.market.mapper", annotationClass = Mapper.class)
+@EnableFeignClients(basePackages = {"top.otsuland.product.common","top.otsuland.user.common"})
+@MapperScan(basePackages = "top.otsuland.product.mapper", annotationClass = Mapper.class)
 public class ProductServiceApplication {
 
 	public static void main(String[] args) {
