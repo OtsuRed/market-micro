@@ -11,7 +11,7 @@ FROM openjdk:21-slim
 WORKDIR /app
 RUN adduser --system --group appuser && \
     chown -R appuser:appuser /app
-COPY --from=builder --chown=appuser:appuser /app/target/product-service.jar product-service.jar
+COPY --from=builder --chown=appuser:appuser /app/target/gateway-service.jar gateway-service.jar
 
 USER appuser
 
@@ -19,4 +19,4 @@ RUN jar tf product-service.jar > /dev/null && echo "JAR文件验证成功" || ec
 
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "product-service.jar" ]
+ENTRYPOINT [ "java", "-jar", "gateway-service.jar" ]
