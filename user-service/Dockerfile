@@ -6,24 +6,35 @@
 FROM maven:3.9.11-amazoncorretto-21 AS builder
 WORKDIR /app
 RUN rm -rf target
-COPY pom.xml .
+COPY pom.xml ./pom.xml
 COPY src ./src
 RUN mvn clean package -DskipTests
+RUN ls -l /app/target/
+RUN jar tf /app/target/user-service.jar
+RUN jar xf /app/target/user-service.jar META-INF/MANIFEST.MF \
+    && cat META-INF/MANIFEST.MF
 
 # 第二阶段：运行
 FROM openjdk:21-slim
+
+# 创建日志目录并设置权限（确保目录存在）
+RUN mkdir -p /app/logs && \
+    mkdir -p /home/nacos/logs && \
+    adduser --system --group appuser && \
+    chown -R appuser:appuser /app /home/nacos
+
 WORKDIR /app
-RUN adduser --system --group appuser && \
-    chown -R appuser:appuser /app && \
-    jar tf target/user-service.jar | grep UserServiceApplication
-# --from=builder 允许从上一阶段的容器内复制文件
-# 如果缺失，则 COPY 命令会在宿主机上寻找文件
 COPY --from=builder --chown=appuser:appuser /app/target/user-service.jar user-service.jar
 
 USER appuser
 
-RUN jar tf user-service.jar > /dev/null && echo "JAR文件验证成功" || echo "JAR文件损坏"
-
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "user-service.jar" ]
+# 强制设置所有相关的系统属性
+ENTRYPOINT [ "java", \
+             "-Dnacos.home=/app/logs", \
+             "-Dnacos.logging.path=/app/logs", \
+             "-Dnacos.logging.default.config.enabled=false", \
+             "-Dlogging.file.path=/app/logs", \
+             "-jar", \
+             "user-service.jar" ]

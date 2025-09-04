@@ -6,17 +6,27 @@ COPY src ./src
 RUN rm -rf target
 RUN mvn clean package -DskipTests
 
-# 运行
+# 第二阶段：运行
 FROM openjdk:21-slim
+
+# 创建日志目录并设置权限（确保目录存在）
+RUN mkdir -p /app/logs && \
+    mkdir -p /home/nacos/logs && \
+    adduser --system --group appuser && \
+    chown -R appuser:appuser /app /home/nacos
+
 WORKDIR /app
-RUN adduser --system --group appuser && \
-    chown -R appuser:appuser /app
 COPY --from=builder --chown=appuser:appuser /app/target/product-service.jar product-service.jar
 
 USER appuser
 
-RUN jar tf product-service.jar > /dev/null && echo "JAR文件验证成功" || echo "JAR文件损坏"
-
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "product-service.jar" ]
+# 强制设置所有相关的系统属性
+ENTRYPOINT [ "java", \
+             "-Dnacos.home=/app/logs", \
+             "-Dnacos.logging.path=/app/logs", \
+             "-Dnacos.logging.default.config.enabled=false", \
+             "-Dlogging.file.path=/app/logs", \
+             "-jar", \
+             "product-service.jar" ]

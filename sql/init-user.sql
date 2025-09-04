@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
     `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
     `user_id` int NOT NULL,
     `email` varchar(300) DEFAULT NULL,
-    `gender` varchar(5) DEFAULT '未公开',
+    `gender` varchar(5) DEFAULT '',
     `prof` varchar(500) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户简介表';

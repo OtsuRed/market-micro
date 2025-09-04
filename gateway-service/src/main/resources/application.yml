@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8080
 
 spring:
   application:
@@ -12,6 +12,8 @@ spring:
     nacos:
       discovery:
         server-addr: nacos-server:8848
+        locator:
+          enabled: true
       config:
         import-check:
           enabled: false
@@ -28,16 +30,13 @@ spring:
                 - Path=/api/users/**
               filters:
                 # 移除路径前缀
-                - StripPrefix=1
+                - StripPrefix=0
             - id: product-service
               uri: lb://product-service
               predicates:
                 - Path=/api/products/**
               filters:
-                - StripPrefix=1
-  nacos:
-    config:
-      enabled: false
+                - StripPrefix=0
 
 # JWT 配置
 jwt:
@@ -49,4 +48,4 @@ logging:
   level:
     '[org.springframework.cloud.gateway]': DEBUG
     '[top.otsuland.market]': DEBUG
-    '[com.alibaba.nacos]': WARN
+    '[com.alibaba.nacos]': DEBUG

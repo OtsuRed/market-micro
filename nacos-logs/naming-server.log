@@ -1,0 +1,546 @@
+2025-09-04 11:23:57,777 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:23:57,777 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:23:57,779 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:23:57,779 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:24:02,644 INFO Load instance extension handler []
+
+2025-09-04 11:24:15,147 INFO Client connection 1756956254953_172.18.0.6_48358 connect
+
+2025-09-04 11:27:01,207 INFO Client connection 1756956254953_172.18.0.6_48358 disconnect, remove instances and subscribers
+
+2025-09-04 11:27:02,311 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 11:27:02,319 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 11:27:34,877 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:27:34,877 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:27:34,881 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:27:34,881 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:27:40,613 INFO Load instance extension handler []
+
+2025-09-04 11:27:54,648 INFO Client connection 1756956474493_172.18.0.8_43178 connect
+
+2025-09-04 11:34:06,648 INFO Client connection 1756956474493_172.18.0.8_43178 disconnect, remove instances and subscribers
+
+2025-09-04 11:34:07,803 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 11:34:07,811 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 11:34:38,153 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:34:38,153 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:34:38,155 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:34:38,155 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:34:43,238 INFO Load instance extension handler []
+
+2025-09-04 11:34:56,765 INFO Client connection 1756956896600_172.18.0.6_37244 connect
+
+2025-09-04 11:40:48,528 INFO Client connection 1756956896600_172.18.0.6_37244 disconnect, remove instances and subscribers
+
+2025-09-04 11:40:49,654 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 11:40:49,661 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 11:44:24,268 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:44:24,268 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:44:24,270 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:44:24,270 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:44:29,910 INFO Load instance extension handler []
+
+2025-09-04 11:44:42,688 INFO Client connection 1756957482530_172.18.0.6_55460 connect
+
+2025-09-04 11:51:46,813 INFO Client connection 1756957482530_172.18.0.6_55460 disconnect, remove instances and subscribers
+
+2025-09-04 11:51:48,000 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 11:51:48,005 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 11:52:15,505 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:52:15,505 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:52:15,507 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:52:15,507 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:52:21,227 INFO Load instance extension handler []
+
+2025-09-04 11:52:33,734 INFO Client connection 1756957953563_172.18.0.8_36642 connect
+
+2025-09-04 11:57:08,211 INFO Client connection 1756957953563_172.18.0.8_36642 disconnect, remove instances and subscribers
+
+2025-09-04 11:57:08,856 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 11:57:08,865 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 11:57:39,282 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 11:57:39,282 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 11:57:39,285 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 11:57:39,285 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 11:57:45,209 INFO Load instance extension handler []
+
+2025-09-04 11:57:58,219 INFO Client connection 1756958278087_172.18.0.6_49846 connect
+
+2025-09-04 12:04:28,297 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 12:04:28,302 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 12:04:28,332 INFO Client connection 1756958278087_172.18.0.6_49846 disconnect, remove instances and subscribers
+
+2025-09-04 12:47:52,695 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 12:47:52,695 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 12:47:52,697 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 12:47:52,697 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 12:47:56,707 INFO Load instance extension handler []
+
+2025-09-04 12:48:07,527 INFO Client connection 1756961287416_172.18.0.8_34520 connect
+
+2025-09-04 12:49:09,205 INFO Client connection 1756961287416_172.18.0.8_34520 disconnect, remove instances and subscribers
+
+2025-09-04 12:49:10,138 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 12:49:10,148 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 12:49:41,179 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 12:49:41,179 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 12:49:41,181 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 12:49:41,181 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 12:49:44,258 INFO Load instance extension handler []
+
+2025-09-04 12:49:58,414 INFO Client connection 1756961398274_172.18.0.7_46128 connect
+
+2025-09-04 12:56:44,649 INFO Client connection 1756961398274_172.18.0.7_46128 disconnect, remove instances and subscribers
+
+2025-09-04 12:56:45,683 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 12:56:45,690 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 12:57:08,908 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 12:57:08,908 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 12:57:08,910 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 12:57:08,910 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 12:57:12,721 INFO Load instance extension handler []
+
+2025-09-04 12:57:25,907 INFO Client connection 1756961845734_172.18.0.6_39992 connect
+
+2025-09-04 13:00:19,370 INFO Client connection 1756961845734_172.18.0.6_39992 disconnect, remove instances and subscribers
+
+2025-09-04 13:00:20,347 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 13:00:20,353 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 13:19:31,890 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 13:19:31,890 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 13:19:31,892 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 13:19:31,892 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 13:19:36,695 INFO Load instance extension handler []
+
+2025-09-04 13:19:47,303 INFO Client connection 1756963187171_172.18.0.8_37066 connect
+
+2025-09-04 13:30:55,905 INFO Client connection 1756963187171_172.18.0.8_37066 disconnect, remove instances and subscribers
+
+2025-09-04 13:30:56,864 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 13:30:56,873 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 13:31:28,040 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 13:31:28,041 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 13:31:28,042 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 13:31:28,043 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 13:31:32,182 INFO Load instance extension handler []
+
+2025-09-04 13:31:46,658 INFO Client connection 1756963906548_172.18.0.8_50542 connect
+
+2025-09-04 13:33:39,002 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 13:33:39,007 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 13:33:39,016 INFO Client connection 1756963906548_172.18.0.8_50542 disconnect, remove instances and subscribers
+
+2025-09-04 13:33:54,109 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 13:33:54,109 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 13:33:54,111 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 13:33:54,111 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 13:33:56,742 INFO Client connection 1756964036651_172.18.0.8_48416 connect
+
+2025-09-04 13:33:57,920 INFO Client connection 1756964036651_172.18.0.8_48416 disconnect, remove instances and subscribers
+
+2025-09-04 13:33:58,198 INFO Load instance extension handler []
+
+2025-09-04 13:33:58,942 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 13:33:58,949 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 13:45:41,193 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 13:45:41,193 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 13:45:41,194 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 13:45:41,194 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 13:45:45,733 INFO Load instance extension handler []
+
+2025-09-04 13:45:57,911 INFO Client connection 1756964757791_172.18.0.7_35624 connect
+
+2025-09-04 14:07:05,517 INFO Client connection 1756964757791_172.18.0.7_35624 disconnect, remove instances and subscribers
+
+2025-09-04 14:07:06,464 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:07:06,471 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:08:18,211 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:08:18,211 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:08:18,213 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:08:18,213 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:08:23,010 INFO Load instance extension handler []
+
+2025-09-04 14:08:33,974 INFO Client connection 1756966113800_172.18.0.6_38768 connect
+
+2025-09-04 14:18:07,942 INFO Client connection 1756966113800_172.18.0.6_38768 disconnect, remove instances and subscribers
+
+2025-09-04 14:18:08,886 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:18:08,892 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:18:34,317 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:18:34,317 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:18:34,318 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:18:34,319 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:18:38,627 INFO Load instance extension handler []
+
+2025-09-04 14:18:49,970 INFO Client connection 1756966729850_172.18.0.7_42952 connect
+
+2025-09-04 14:21:27,536 INFO Client connection 1756966729850_172.18.0.7_42952 disconnect, remove instances and subscribers
+
+2025-09-04 14:21:28,589 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:21:28,591 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:21:55,959 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:21:55,960 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:21:55,962 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:21:55,962 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:22:00,061 INFO Load instance extension handler []
+
+2025-09-04 14:22:11,700 INFO Client connection 1756966931494_172.18.0.6_49980 connect
+
+2025-09-04 14:24:14,367 INFO Client connection 1756966931494_172.18.0.6_49980 disconnect, remove instances and subscribers
+
+2025-09-04 14:24:15,299 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:24:15,301 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:24:37,608 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:24:37,609 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:24:37,610 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:24:37,610 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:24:42,076 INFO Load instance extension handler []
+
+2025-09-04 14:24:51,518 INFO Client connection 1756967091336_172.18.0.6_54826 connect
+
+2025-09-04 14:35:49,943 INFO Client connection 1756967091336_172.18.0.6_54826 disconnect, remove instances and subscribers
+
+2025-09-04 14:35:50,889 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:35:50,894 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:38:07,452 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:38:07,452 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:38:07,453 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:38:07,453 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:38:11,725 INFO Load instance extension handler []
+
+2025-09-04 14:38:24,541 INFO Client connection 1756967904422_172.18.0.7_58966 connect
+
+2025-09-04 14:41:23,328 INFO Client connection 1756967904422_172.18.0.7_58966 disconnect, remove instances and subscribers
+
+2025-09-04 14:41:24,370 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:41:24,372 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:42:38,354 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:42:38,354 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:42:38,355 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:42:38,355 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:42:42,486 INFO Load instance extension handler []
+
+2025-09-04 14:42:56,002 INFO Client connection 1756968175882_172.18.0.8_35532 connect
+
+2025-09-04 14:44:05,720 INFO Client connection 1756968175882_172.18.0.8_35532 disconnect, remove instances and subscribers
+
+2025-09-04 14:44:06,716 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:44:06,727 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:46:23,462 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:46:23,462 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:46:23,463 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:46:23,463 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:46:27,658 INFO Load instance extension handler []
+
+2025-09-04 14:46:41,236 INFO Client connection 1756968401097_172.18.0.7_52452 connect
+
+2025-09-04 14:49:11,972 INFO Client connection 1756968401097_172.18.0.7_52452 disconnect, remove instances and subscribers
+
+2025-09-04 14:49:12,962 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:49:12,964 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:50:16,219 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:50:16,219 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:50:16,221 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:50:16,221 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:50:20,321 INFO Load instance extension handler []
+
+2025-09-04 14:50:35,923 INFO Client connection 1756968635757_172.18.0.7_34542 connect
+
+2025-09-04 14:53:21,407 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 14:53:21,419 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 14:53:21,432 INFO Client connection 1756968635757_172.18.0.7_34542 disconnect, remove instances and subscribers
+
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,764 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,765 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,765 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,765 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:53:37,765 ERROR [TASK-FAILED] java.lang.InterruptedException
+
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1645)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	at com.alibaba.nacos.common.task.engine.TaskExecuteWorker$InnerWorker.run(TaskExecuteWorker.java:118)
+2025-09-04 14:54:05,836 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 14:54:05,837 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 14:54:05,838 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 14:54:05,838 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 14:54:11,861 INFO Load instance extension handler []
+
+2025-09-04 14:54:25,661 INFO Client connection 1756968865445_172.18.0.7_54416 connect
+
+2025-09-04 15:01:17,412 INFO Client connection 1756968865445_172.18.0.7_54416 disconnect, remove instances and subscribers
+
+2025-09-04 15:01:17,632 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 15:01:17,652 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 15:04:28,884 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 15:04:28,885 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 15:04:28,887 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 15:04:28,887 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 15:04:34,595 INFO Load instance extension handler []
+
+2025-09-04 15:04:48,087 INFO Client connection 1756969487947_172.18.0.7_35644 connect
+
+2025-09-04 15:08:13,069 INFO Client connection 1756969487947_172.18.0.7_35644 disconnect, remove instances and subscribers
+
+2025-09-04 15:08:14,283 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 15:08:14,291 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 15:09:55,997 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 15:09:55,997 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 15:09:55,999 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 15:09:55,999 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 15:10:00,660 INFO Load instance extension handler []
+
+2025-09-04 15:10:14,634 INFO Client connection 1756969814374_172.18.0.6_45912 connect
+
+2025-09-04 15:14:17,241 INFO Client connection 1756969814374_172.18.0.6_45912 disconnect, remove instances and subscribers
+
+2025-09-04 15:14:17,430 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 15:14:17,450 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+
+2025-09-04 15:18:01,191 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-09-04 15:18:01,192 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-09-04 15:18:01,193 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-09-04 15:18:01,193 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-09-04 15:18:07,233 INFO Load instance extension handler []
+
+2025-09-04 15:18:20,542 INFO Client connection 1756970300399_172.18.0.8_35660 connect
+
+2025-09-04 15:36:47,250 INFO Client connection 1756970300399_172.18.0.8_35660 disconnect, remove instances and subscribers
+
+2025-09-04 15:36:48,614 INFO [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-09-04 15:36:48,631 INFO [NamingServerHttpClientManager] Completed destruction of HTTP-Client
+

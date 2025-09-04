@@ -5,8 +5,10 @@ spring:
   # Nacos 配置，本地开发默认值
   cloud:
     nacos:
+      logs:
+        path: /home/nacos/logs
       discovery:
-        server-addr: ${NACOS_SERVER:nacos-service:8848}
+        server-addr: ${NACOS_SERVER:nacos-server:8848}
         namespace: public
         group: DEFAULT_GROUP
         username: ${NACOS_USERNAME:nacos}
@@ -23,7 +25,7 @@ spring:
         # enabled: false
   # 数据源配置，本地开发默认值
   datasource:
-    url: jdbc:mysql://localhost:3306/user_service?useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://mysql-product:3306/user_service?useSSL=false&allowMultiQueries=true
     username: root
     password: Fosatmysql1939!
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -50,6 +52,8 @@ server:
   port: 8080
 
 logging:
+  file:
+    path: /home/nacos/logs
   level:
-    '[top.otsuland.market.service]': DEBUG
-    '[top.otsuland.market.mapper]': DEBUG
+    '[top.otsuland.product.service]': DEBUG
+    '[top.otsuland.user.mapper]': DEBUG

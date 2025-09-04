@@ -1,0 +1,49 @@
+<configuration scan="true" scanPeriod="10 seconds">
+    <!-- 直接使用绝对路径，不依赖任何变量 -->
+    <property name="LOG_ABSOLUTE_PATH" value="/home/nacos/logs"/>
+
+    <!-- cmdb-main 日志配置：全部用绝对路径 -->
+    <appender name="cmdb-main"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 绝对路径：直接指定日志文件位置 -->
+        <file>${LOG_ABSOLUTE_PATH}/cmdb-main.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 绝对路径：日志滚动文件名 -->
+            <fileNamePattern>${LOG_ABSOLUTE_PATH}/cmdb-main.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <maxFileSize>2GB</maxFileSize>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>7GB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%date %level %msg%n%n</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 确保日志输出到该appender（绑定cmdb模块） -->
+    <logger name="com.alibaba.nacos.cmdb.main" additivity="false" level="INFO">
+        <appender-ref ref="cmdb-main"/>
+    </logger>
+
+    <!-- （可选）添加根日志绑定，确保启动日志也能输出到绝对路径（辅助验证） -->
+    <root level="INFO">
+        <appender-ref ref="cmdb-main"/>
+    </root>
+
+    <!-- 保留其他原有logger配置（如address、remote等，路径也建议改为绝对路径） -->
+    <appender name="nacos-address" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ABSOLUTE_PATH}/nacos-address.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ABSOLUTE_PATH}/nacos-address.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%date %level %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <logger name="com.alibaba.nacos.address.main" additivity="false" level="INFO">
+        <appender-ref ref="nacos-address"/>
+    </logger>
+</configuration>

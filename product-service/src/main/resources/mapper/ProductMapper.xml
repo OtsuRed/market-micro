@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.otsuland.market.mapper.ProductMapper">
+<mapper namespace="top.otsuland.product.mapper.ProductMapper">
 
     <!-- selectByUidAndPid --> 
 
@@ -66,14 +66,14 @@
 
     <!-- selectProductByUid --> 
 
-    <select id="selectProductByUid" resultType="top.otsuland.market.entity.Product">
+    <select id="selectProductByUid" resultType="top.otsuland.product.entity.Product">
         select * 
         from product
         where seller_id = #{uid}
     </select>
 
     <!-- selectFavByUid --> 
-    <resultMap id="productMap" type="top.otsuland.market.entity.Product">
+    <resultMap id="productMap" type="top.otsuland.product.entity.Product">
         <result property="id" column="id" />
         <result property="name" column="name" />
         <result property="price" column="price" />
@@ -82,7 +82,7 @@
         <result property="prof" column="prof" />
         <result property="want" column="want" />
         <result property="sellerName" column="seller_name" />
-        <result property="createName" column="create_name" />
+        <result property="createTime" column="create_time" />
         <result property="state" column="state" />
     </resultMap>
     <select id="selectFavByUid" resultMap="productMap">

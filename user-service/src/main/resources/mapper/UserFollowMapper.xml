@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.otsuland.market.mapper.UserFollowMapper">
+<mapper namespace="top.otsuland.user.mapper.UserFollowMapper">
 
     <!-- selectByFolloweeAndFollower --> 
 
@@ -11,7 +11,7 @@
     </select>
 
     <!-- selectFolloweeWithUsername --> 
-    <resultMap id="userFollowVOMap" type="top.otsuland.market.dto.UserFollowVO">
+    <resultMap id="userFollowVOMap" type="top.otsuland.user.dto.UserFollowVO">
         <result property="userId" column="followee_id" />
         <result property="username" column="username" />
     </resultMap>
@@ -25,7 +25,7 @@
     </select>
 
     <!-- selectFollowerWithUsername --> 
-    <resultMap id="userFollowVOMap2" type="top.otsuland.market.dto.UserFollowVO2">
+    <resultMap id="userFollowVOMap2" type="top.otsuland.user.dto.UserFollowVO2">
         <result property="userId" column="follower_id" />
         <result property="username" column="username" />
     </resultMap>
