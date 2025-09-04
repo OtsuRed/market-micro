@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan(basePackages = "top.otsuland.market.mapper", annotationClass = Mapper.class)
+@MapperScan(basePackages = "top.otsuland.user.mapper", annotationClass = Mapper.class)
 public class UserServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);

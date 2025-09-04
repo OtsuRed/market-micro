@@ -5,6 +5,7 @@
 # 一定要看清楚镜像的标签
 FROM maven:3.9.11-amazoncorretto-21 AS builder
 WORKDIR /app
+RUN rm -rf target
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
@@ -13,7 +14,8 @@ RUN mvn clean package -DskipTests
 FROM openjdk:21-slim
 WORKDIR /app
 RUN adduser --system --group appuser && \
-    chown -R appuser:appuser /app
+    chown -R appuser:appuser /app && \
+    jar tf target/user-service.jar | grep UserServiceApplication
 # --from=builder 允许从上一阶段的容器内复制文件
 # 如果缺失，则 COPY 命令会在宿主机上寻找文件
 COPY --from=builder --chown=appuser:appuser /app/target/user-service.jar user-service.jar

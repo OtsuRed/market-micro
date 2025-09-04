@@ -67,6 +67,11 @@ services:
       - NACOS_CORE_AUTH_ENABLED=true
       - NACOS_CORE_AUTH_SERVER_IDENTITY_KEY=AliceInNacos
       - NACOS_CORE_AUTH_SERVER_IDENTITY_VALUE=alicenet
+      - NACOS_LOGS_PATH=/home/nacos/logs
+
+    volumes:
+      - ./nacos-logs:/home/nacos/logs
+
     depends_on:
       - mysql-for-nacos
       - nacos-db-init
@@ -175,6 +180,27 @@ services:
       - SPRING_CLOUD_NACOS_DISCOVERY_FAIL-FAST=false
     restart: unless-stopped
     networks: 
+      - alice-market-network
+  gateway-service:
+    build:
+      context: ./gateway-service
+    ports:
+      - "8083:8080"
+    depends_on:
+      nacos-server:
+        condition: service_healthy
+    environment:
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER_ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_DISCOVERY_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_DISCOVERY_PASSWORD=Fosatnacos1939
+      - SPRING_CLOUD_NACOS_CONFIG_USERNAME=nacos
+      - SPRING_CLOUD_NACOS_CONFIG_PASSWORD=Fosatnacos1939
+      # 添加重试装置
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAILURE-TOLERANCE-ENABLED=true
+      - SPRING_CLOUD_NACOS_DISCOVERY_FAIL-FAST=false
+    restart: unless-stopped
+    networks:
       - alice-market-network
 
 volumes:
