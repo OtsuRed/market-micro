@@ -1,6 +1,11 @@
 package top.otsuland.user.service;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -26,6 +31,8 @@ import top.otsuland.user.mapper.UserFollowMapper;
 import top.otsuland.user.mapper.UserMapper;
 import top.otsuland.user.mapper.UserPicMapper;
 import top.otsuland.user.mapper.UserProfileMapper;
+
+import static org.springframework.core.io.buffer.DataBufferUtils.readInputStream;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -75,10 +82,24 @@ public class UserServiceImpl implements UserService{
         UserProfile up = new UserProfile();
         up.setUserId(userMapper.selectByUsername(user.getUsername()).getId());
         int row2 = userProfileMapper.insert(up);
-        if(row1 == 1 && row2 == 1) {
-            return 1;
+        try
+        {
+            URL httpUrl = new URL("https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png");
+            HttpURLConnection conn = (HttpURLConnection)httpUrl.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(5 * 1000);
+            InputStream inStream = conn.getInputStream();//通过输入流获取图片数据
+            byte[] btImg = inStream.readAllBytes();//得到图片的二进制数据
+            int row3 = userPicMapper.insertPicAndPicNarrow(userMapper.selectByUsername(user.getUsername()).getId(),btImg,null);
+            if(row1 == 1 && row2 == 1 && row3 == 1) {
+                return 1;
+            }
+            return 0;
+        } catch (RuntimeException | IOException e)
+        {
+            throw new RuntimeException(e);
         }
-        return 0;
+
     }
 
     /**

@@ -8,8 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -21,15 +20,6 @@ import top.otsuland.product.dto.ProductPicMetaDTO;
 import top.otsuland.product.dto.ProductVO;
 import top.otsuland.product.entity.Product;
 import top.otsuland.product.service.ProductService;
-
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -44,7 +34,7 @@ public class ProductController {
      */
     @PostMapping
     public Result<?> add(
-        @RequestAttribute("id") Integer uid,
+        @RequestHeader("X-User-Id") Integer uid,
         @RequestBody ProductCreateReq pcr) {
         int code = productService.add(uid, pcr);
         if(code > 0) {
@@ -65,7 +55,7 @@ public class ProductController {
      */
     @PostMapping("/pic/{kind}/{pid}")
     public Result<?> pic(
-        @RequestAttribute(required = true, value="id") Integer uid, 
+        @RequestHeader("X-User-Id") Integer uid,
         @PathVariable Integer kind,
         @PathVariable Integer pid, MultipartFile pic) {
         try {
@@ -87,7 +77,7 @@ public class ProductController {
      * 用户-修改商品图
      */
     @PutMapping("/pic/{picId}")
-    public Result<?> picEdit(@RequestAttribute("id") Integer uid, @PathVariable Integer picId, MultipartFile pic) {
+    public Result<?> picEdit(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer picId, MultipartFile pic) {
         try {
             int code = productService.picEdit(uid, picId, pic);
             switch(code) {
@@ -106,7 +96,7 @@ public class ProductController {
      * 用户-删除商品图
      */
     @DeleteMapping("/pic/{picId}")
-    public Result<?> picDel(@RequestAttribute("id") Integer uid, @PathVariable Integer picId) {
+    public Result<?> picDel(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer picId) {
         int code = productService.picDel(uid, picId);
         switch(code) {
             case 1: return Result.set(code, "成功删除！");
@@ -121,7 +111,7 @@ public class ProductController {
      * 用户-获取自己已发布的商品列表
      */
     @GetMapping
-    public Result<?> get(@RequestAttribute("id") Integer uid,
+    public Result<?> get(@RequestHeader("X-User-Id") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size
     ) {
@@ -140,7 +130,7 @@ public class ProductController {
      * 获取别人发布的商品列表
      */
     @GetMapping("/published/{uid}")
-    public Result<?> getMethodName(@PathVariable Integer uid,
+    public Result<?> getMethodName(@PathVariable("uid") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size
     ) {
@@ -153,7 +143,7 @@ public class ProductController {
      * 用户-修改商品
      */
     @PutMapping
-    public Result<?> edit(@RequestAttribute("id") Integer uid, @RequestBody Product product) {
+    public Result<?> edit(@RequestHeader("X-User-Id") Integer uid, @RequestBody Product product) {
         int code = productService.edit(uid, product);
         switch(code) {
             case 1: return Result.set(code, "修改成功！");
@@ -167,7 +157,7 @@ public class ProductController {
      * 用户-删除商品（不再出售）
      */
     @DeleteMapping("/{pid}")
-    public Result<?> del(@RequestAttribute("id") Integer uid, @PathVariable Integer pid) {
+    public Result<?> del(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer pid) {
         int code = productService.del(uid, pid);
         switch(code) {
             case 1: return Result.set(code, "成功删除！");
@@ -181,7 +171,7 @@ public class ProductController {
      * 收藏商品
      */
     @PostMapping("/fav/{pid}")
-    public Result<?> fav(@RequestAttribute("id") Integer uid, @PathVariable Integer pid) {
+    public Result<?> fav(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer pid) {
         int code = productService.fav(uid, pid);
         switch(code) {
             case 1: return Result.set(code, "收藏成功！");
@@ -196,7 +186,7 @@ public class ProductController {
      * 删除收藏
      */
     @DeleteMapping("/fav/{pid}")
-    public Result<?> favDel(@RequestAttribute("id") Integer uid, @PathVariable Integer pid) {
+    public Result<?> favDel(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer pid) {
         int code = productService.favDel(uid, pid);
         switch(code) {
             case 1: return Result.set(code, "成功删除！");
@@ -209,7 +199,7 @@ public class ProductController {
      * 获取收藏列表
      */
     @GetMapping("/fav")
-    public Result<?> favList(@RequestAttribute("id") Integer uid,
+    public Result<?> favList(@RequestHeader("X-User-Id") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size
     ) {
@@ -238,7 +228,7 @@ public class ProductController {
      * 判断是否收藏商品
      */
     @GetMapping("/fav/if/{pid}")
-    public Result<?> isFav(@RequestAttribute("id") Integer uid, @PathVariable Integer pid) {
+    public Result<?> isFav(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer pid) {
         if(productService.isFav(uid, pid) == 1) {
             return Result.set(1, "已收藏");
         }
@@ -275,7 +265,7 @@ public class ProductController {
      */
     @GetMapping("/lists")
     public Result<?> list(
-        @RequestAttribute("id") Integer uid,
+        @RequestHeader("X-User-Id") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size,
         @RequestParam(required = false) List<Integer> categoryIds, // 分类，集合类型必需显式声明为非必需

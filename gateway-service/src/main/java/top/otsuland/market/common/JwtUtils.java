@@ -13,26 +13,28 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Component;
 
 /**
  * 令牌工具类
  */
+@Component
 public class JwtUtils {
 
     @Value("${jwt.secret}")
-    static private String SECRET;
+     private String SECRET;
 
     @Value("${jwt.expiration}")
-    static private Long EXPIRATION;
+     private Long EXPIRATION;
 
-    private static final String SUBJECT = "AliceInWonderland";
+    private  final String SUBJECT = "AliceInWonderland";
 
-    private static SecretKey getStringKey() {
+    private  SecretKey getStringKey() {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
     // 生成令牌
-    static public String geneJWT(Integer uid) {
+     public String geneJWT(Integer uid) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", uid);
         String token = Jwts.builder().claims()
@@ -47,7 +49,7 @@ public class JwtUtils {
     }
 
     // 解析令牌
-    static public Claims checkJWT(String token) {
+     public Claims checkJWT(String token) {
         final Claims claims = Jwts.parser()
                 .verifyWith(getStringKey())
                 .build()

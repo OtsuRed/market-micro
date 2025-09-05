@@ -8,12 +8,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import top.otsuland.user.common.JwtUtils;
 import top.otsuland.user.common.Result;
 import top.otsuland.user.dto.PageResult;
 import top.otsuland.user.dto.UserFollowVO;
@@ -23,16 +22,6 @@ import top.otsuland.user.dto.UserProfResp;
 import top.otsuland.user.entity.User;
 import top.otsuland.user.entity.UserProfile;
 import top.otsuland.user.service.UserService;
-
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 
 @RestController
 @RequestMapping("/api/users")
@@ -73,12 +62,14 @@ public class UserController {
     @PostMapping("/login")
     public Result<?> login(@RequestBody User user) {
         int code = userService.login(user);
+        System.out.println(code);
         if(code > 0) {
-            String token = JwtUtils.geneJWT(userService.withId(user));
+//            String token = JwtUtils.geneJWT(userService.withId(user));
+//            System.out.println(token);
             UserLoginResp ulr = new UserLoginResp();
-            ulr.setToken(token);
+//            ulr.setToken(token);
             ulr.setUid(code);
-            return Result.set(1, "登录成功！", ulr);
+            return Result.set(1, "登录成功！!", ulr);
         } else if(code == -1) {
             return Result.set(code, "密码为空！");
         } else if(code == -2) {
@@ -97,7 +88,7 @@ public class UserController {
      * ok
      */
     @PutMapping
-    public Result<?> meta(@RequestAttribute("id") Integer uid, @RequestBody User user) {
+    public Result<?> meta(@RequestHeader("X-User-Id") Integer uid, @RequestBody User user) {
         if(userService.meta(uid, user) == 1) {
             return Result.set(1, "修改成功！", userService.getMeta(uid));
         }
@@ -109,7 +100,7 @@ public class UserController {
      * ok
      */
     @PutMapping("/prof")
-    public Result<?> prof(@RequestAttribute("id") Integer id, @RequestBody UserProfile userProfile) {
+    public Result<?> prof(@RequestHeader("X-User-Id") Integer id, @RequestBody UserProfile userProfile) {
         int code = userService.prof(id, userProfile);
         if(code == 1) {
             return Result.set(code, "修改成功！");
@@ -121,7 +112,7 @@ public class UserController {
      * 获取个人简介
      */
     @GetMapping("/prof/{uid}")
-    public Result<?> getProf(@PathVariable Integer uid) {
+    public Result<?> getProf(@PathVariable("uid") Integer uid) {
         UserProfile uprof =  userService.getProf(uid);
         if(uprof == null) {
             return Result.set(0, "获取失败！");
@@ -135,7 +126,7 @@ public class UserController {
     }
 
     @GetMapping("/prof")
-    public Result<?> getProfWithoutUid(@RequestAttribute("id") Integer uid) {
+    public Result<?> getProfWithoutUid(@RequestHeader("X-User-Id") Integer uid) {
         UserProfile uprof =  userService.getProf(uid);
         if(uprof == null) {
             return Result.set(0, "获取失败！");
@@ -153,7 +144,7 @@ public class UserController {
      * ok
      */
     @PostMapping("/icon")
-    public Result<?> icon(@RequestAttribute("id") Integer id, @RequestParam MultipartFile pic) {
+    public Result<?> icon(@RequestHeader("X-User-Id") Integer id, @RequestParam MultipartFile pic) {
         try {
             int code = userService.icon(id, pic);
             switch (code) {
@@ -172,7 +163,7 @@ public class UserController {
      * 下载头像
      */
     @GetMapping("/icon/{uid}")
-    public ResponseEntity<?> loadIcon2(@PathVariable Integer uid) {
+    public ResponseEntity<?> loadIcon2(@PathVariable("uid") Integer uid) {
         byte[] image = userService.getIcon(uid);
         if(image == null) {
             return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(null);
@@ -188,7 +179,7 @@ public class UserController {
      * 关注用户
      */
     @PutMapping("/follow/{fid}")
-    public Result<?> follow(@RequestAttribute("id") Integer uid, @PathVariable Integer fid) {
+    public Result<?> follow(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer fid) {
         int code = userService.follow(uid, fid);
         if(code == 1) {
             return Result.set(1, "关注成功！");
@@ -203,7 +194,7 @@ public class UserController {
      * 取消关注
      */
     @DeleteMapping("/follow/{fid}")
-    public Result<?> disfollow(@RequestAttribute("id") Integer uid, @PathVariable Integer fid) {
+    public Result<?> disfollow(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer fid) {
         int code = userService.disfollow(uid, fid);
         if(code == 1) {
             return Result.set(1, "取消关注！");
@@ -218,7 +209,7 @@ public class UserController {
      * 分页获取关注列表
      */
     @GetMapping("/follow/{uid}")
-    public Result<?> getfollower(@PathVariable Integer uid,
+    public Result<?> getfollower(@PathVariable("uid") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size
     ) {
@@ -231,7 +222,7 @@ public class UserController {
      * 分页获取粉丝列表
      */
     @GetMapping("/fans/{uid}")
-    public Result<?> getfollowing(@PathVariable Integer uid,
+    public Result<?> getfollowing(@PathVariable("uid") Integer uid,
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer size
     ) {
@@ -245,7 +236,7 @@ public class UserController {
      * 判断是否关注
      */
     @GetMapping("/follow/if/{fid}")
-    public Result<?> isFollowing(@RequestAttribute("id") Integer uid, @PathVariable Integer fid) {
+    public Result<?> isFollowing(@RequestHeader("X-User-Id") Integer uid, @PathVariable Integer fid) {
         if(userService.isFollowing(uid, fid) == 1) {
             return Result.set(1, "已关注");
         }
